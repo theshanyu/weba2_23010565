@@ -6,9 +6,9 @@ A Next.js web application for booking flights on a fictitious regional airline o
 
 ## Live deployment
 
-> After deploying to Vercel, paste your public URL here:
->
-> **`https://YOUR-PROJECT.vercel.app`**
+**https://weba2-23010565.vercel.app**
+
+GitHub: https://github.com/theshanyu/weba2_23010565
 
 ## Features
 

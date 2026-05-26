@@ -53,6 +53,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ flights, count: flights.length });
   } catch (e) {
     console.error(e);
+    const msg = e instanceof Error ? e.message : "";
+    if (msg.includes("MONGODB_URI")) {
+      return jsonError(msg, 500);
+    }
     return jsonError("Failed to search schedules.", 500);
   }
 }

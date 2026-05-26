@@ -1,9 +1,16 @@
 import { MongoClient, Db } from "mongodb";
 
 function getUri(): string {
-  const uri = process.env.MONGODB_URI;
+  const uri = process.env.MONGODB_URI?.trim();
   if (!uri) {
-    throw new Error("Please add MONGODB_URI to .env.local");
+    throw new Error(
+      "MONGODB_URI is not set. Add it in Vercel → Settings → Environment Variables, then Redeploy."
+    );
+  }
+  if (uri.startsWith("MONGODB_URI=")) {
+    throw new Error(
+      "MONGODB_URI is misconfigured: paste only mongodb+srv://... in Vercel (do not include 'MONGODB_URI=')."
+    );
   }
   return uri;
 }
