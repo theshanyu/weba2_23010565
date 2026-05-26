@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { ObjectId } from "mongodb";
 import { getDb } from "@/lib/mongodb";
+import { getAirport } from "@/lib/airports";
 import { jsonError } from "@/lib/apiErrors";
 import { toSchedulePublic } from "@/lib/serialize";
+import { localDateRangeToUTC } from "@/lib/timezones";
 import type { Schedule } from "@/lib/types";
 
 const querySchema = z.object({
@@ -28,15 +30,17 @@ export async function GET(request: NextRequest) {
     return jsonError("date1 must be on or before date2.", 400);
   }
 
-  const start = new Date(`${date1}T00:00:00.000Z`);
-  const end = new Date(`${date2}T23:59:59.999Z`);
+  const originIcao = orig.toUpperCase();
+  const originAirport = getAirport(originIcao);
+  const originTz = originAirport?.timezone ?? "Pacific/Auckland";
+  const { start, end } = localDateRangeToUTC(date1, date2, originTz);
 
   try {
     const db = await getDb();
     const docs = await db
       .collection<Schedule>("schedules")
       .find({
-        origin: orig.toUpperCase(),
+        origin: originIcao,
         destination: dest.toUpperCase(),
         departUTC: { $gte: start, $lte: end },
       })

@@ -87,7 +87,7 @@ export default function BookPage() {
                 name="name"
                 required
                 minLength={2}
-                className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
                 placeholder="Jane Smith"
               />
             </div>
@@ -99,7 +99,7 @@ export default function BookPage() {
                 name="email"
                 type="email"
                 required
-                className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
                 placeholder="jane@example.com"
               />
               <p className="mt-1 text-xs text-slate-500">
@@ -113,7 +113,7 @@ export default function BookPage() {
               <input
                 name="phone"
                 type="tel"
-                className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
                 placeholder="+64 21 000 0000"
               />
             </div>

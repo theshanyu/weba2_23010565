@@ -24,3 +24,15 @@ export function formatInTz(
 export function addDuration(utc: Date, minutes: number): Date {
   return addMinutes(utc, minutes);
 }
+
+/** Inclusive local calendar-day range at an airport → UTC bounds for MongoDB queries */
+export function localDateRangeToUTC(
+  date1: string,
+  date2: string,
+  timezone: string
+): { start: Date; end: Date } {
+  return {
+    start: fromZonedTime(`${date1}T00:00:00`, timezone),
+    end: fromZonedTime(`${date2}T23:59:59.999`, timezone),
+  };
+}

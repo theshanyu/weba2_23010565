@@ -80,7 +80,7 @@ export default function SearchForm({
           <select
             value={orig}
             onChange={(e) => setOrig(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
           >
             {airports.map((a) => (
               <option key={a.icao} value={a.icao}>
@@ -106,7 +106,7 @@ export default function SearchForm({
           <select
             value={dest}
             onChange={(e) => setDest(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
             required
           >
             <option value="">Select destination</option>
@@ -127,7 +127,7 @@ export default function SearchForm({
             type="date"
             value={date1}
             onChange={(e) => setDate1(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
           />
         </div>
         <div>
@@ -138,7 +138,7 @@ export default function SearchForm({
             type="date"
             value={date2}
             onChange={(e) => setDate2(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-100"
           />
         </div>
         <div className="flex items-end">
